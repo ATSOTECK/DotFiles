@@ -18,7 +18,6 @@ function! airline#themes#gruvbox#refresh()
   let s:N1 = airline#themes#get_highlight2(['Normal', 'bg'], ['StatusLineNC', 'bg'])
   let s:N2 = airline#themes#get_highlight2(['StatusLineNC', 'bg'], ['StatusLineNC', 'fg'])
   let s:N3 = airline#themes#get_highlight2(['StatusLineNC', 'bg'], ['CursorLine', 'bg'])
-  let s:N3 = airline#themes#get_highlight('VertSplit') "skyler
   let g:airline#themes#gruvbox#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
   let g:airline#themes#gruvbox#palette.normal_modified = { 'airline_c': modified_group }
   let g:airline#themes#gruvbox#palette.normal.airline_warning = warning_group
@@ -54,7 +53,10 @@ function! airline#themes#gruvbox#refresh()
 
   let g:airline#themes#gruvbox#palette.accents = { 'red': accents_group }
 
-  let s:TF = airline#themes#get_highlight2(['Normal', 'bg'], ['Normal', 'bg'])
+  "s:TF is the top bar color
+  "let s:TF = airline#themes#get_highlight2(['Normal', 'bg'], ['Normal', 'bg'])
+  "['CursorLine', 'bg'] for the second one will make it darker.
+  let s:TF = airline#themes#get_highlight2(['StatusLineNC', 'fg'], ['StatusLineNC', 'fg']) "skyler
   let g:airline#themes#gruvbox#palette.tabline = {
     \ 'airline_tab':  s:N2,
     \ 'airline_tabsel':  s:N1,
