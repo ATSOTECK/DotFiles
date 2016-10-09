@@ -34,6 +34,7 @@ set vb "disables beeping
 set whichwrap+=<,>,h,l,[,]
 
 vsp
+au BufRead,BufNewFile * startinsert
 
 "remove scrollbars in the gui mode
 "set guioptions-=r
