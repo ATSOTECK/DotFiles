@@ -14,6 +14,7 @@ set shiftwidth=4
 set expandtab
 
 set nowrap "no linewrap
+"set autoread "does nothing
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" "set the cursor to a vertical bar when entering insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" "set the cursor to a block when exiting insert mode
@@ -34,7 +35,11 @@ set vb "disables beeping
 set whichwrap+=<,>,h,l,[,]
 
 vsp
-au BufRead,BufNewFile * startinsert
+"start in insert mode
+"au BufRead,BufNewFile * startinsert
+
+"add text when making a new .nifty file
+au BufNewFile *.nifty :normal i//@author Skyler
 
 "remove scrollbars in the gui mode
 "set guioptions-=r
